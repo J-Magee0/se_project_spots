@@ -34,6 +34,11 @@
   opacity: 40%;
   align-self: flex-end;
   padding: 0;
+  cursor: pointer;
+}
+
+.card__like-btn:hover {
+  opacity: 1;
 }
 
 @media screen and (max-width: 627px) {
