@@ -14,3 +14,9 @@
   color: #212121;
   opacity: 70%;
 }
+
+@media screen and (max-width: 627px) {
+  .footer {
+    margin: 60px 0;
+  }
+}
