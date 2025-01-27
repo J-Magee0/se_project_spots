@@ -1,21 +1,26 @@
 # Project 3: Spots
 
-### Overview  
+### Overview
 
-* Intro  
-* Figma  
-* Images  
-  
 **Intro**
-  
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.  
-  
-**Figma**  
-  
-* [Link to the project on Figma](https://www.figma.com/file/BBNm2bC3lj8QQMHlnqRsga/Sprint-3-Project-%E2%80%94-Spots?type=design&node-id=2%3A60&mode=design&t=afgNFybdorZO6cQo-1)
-  
-**Images**  
-  
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
-  
-Good luck and have fun!
+
+This is a responsive website layout for an interactive social media web application called '**Spots**', where users can add and remove photos, like photos of other users, and make a few minor adjustments to their profile. This project based off figma design linked below for mobile (320px) and desktop (1440px) using HTML & CSS.
+
+**Figma Link**
+
+- [Link to the project on Figma](https://www.figma.com/design/BBNm2bC3lj8QQMHlnqRsga/Sprint-3-Project%3A-Spots?node-id=2-60&t=xL5ykCZhfigpk8xW-0)
+
+**Images**
+
+![figma desktop layout](./images/demo/figma_spots-desktop.png)
+![figma mobile layout](./images/demo/figma_spots-mobile.png)
+![figma overflow](./images/demo/figma_spots-overflow.png)
+![figma button layout](./images/demo/figma_spopts-btn.png)
+
+![demo desktop layout](./images/demo/spots-desktop_demo.png)
+![demo mobile layout top](./images/demo/spots-mobile_demo1.png)
+![demo mobile layout bottom](./images/demo/spots-mobile_demo2.png)
+
+**GitHub Pages Link**
+
+- [Link to github repo](https://j-magee0.github.io/se_project_spots/)
