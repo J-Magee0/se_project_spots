@@ -23,4 +23,8 @@ This is a responsive website layout for an interactive social media web applicat
 
 **GitHub Pages Link**
 
-- [Link to github repo](https://j-magee0.github.io/se_project_spots/)
+- [Link to Spots website](https://j-magee0.github.io/se_project_spots/)
+
+**Video link from cloud save file**
+
+- [Link to video describing website design](https://1drv.ms/v/c/00823733c20b3fac/EQbWVWZNOnVEphqFm6qHddQBq4qwJRghGPoS7ZdSQWkZfA?e=DHaSuz)
