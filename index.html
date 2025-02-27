@@ -45,18 +45,15 @@
         <section class="cards">
           <ul class="cards__list">
             <template id="card-template">
-               <li class="card">
-              <img
-                src=""
-                alt=""
-                class="card__image"
-              />
-              <div class="card__content">
-                <h2 class="card__title"></h2>
-                <button type="button" class="card__like-btn"></button>
-              </div>
-            </li>
+              <li class="card">
+                <img src="" alt="" class="card__image" />
+                <div class="card__content">
+                  <h2 class="card__title"></h2>
+                  <button type="button" class="card__like-btn"></button>
+                </div>
+              </li>
             </template>
+          </ul>
         </section>
       </main>
       <footer class="footer">
@@ -64,9 +61,9 @@
       </footer>
       <div class="modal" id="edit-modal">
         <div class="modal__container">
-          <button type="submit" class="modal__close-btn"></button>
+          <button type="button" class="modal__close-btn"></button>
           <h2 class="modal__title">Edit Profile</h2>
-          <form name="edit-profile" class="modal__form">
+          <form name="edit-profile" class="modal__form" id="profile-form">
             <label for="profile-name-input" class="modal__label">
               Name
               <input

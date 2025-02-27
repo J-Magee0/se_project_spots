@@ -37,7 +37,7 @@ const profileDescriptionInput = editModal.querySelector(
   "#profile-description-input"
 );
 
-const profileFormElement = editModal.querySelector(".modal__form");
+const profileFormElement = document.forms["profile-form"];
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
