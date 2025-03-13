@@ -23,6 +23,10 @@ const initialCards = [
     name: "Mountain house",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
   },
+  {
+    name: "Golden Gate Bridge",
+    link: "  https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
+  },
 ];
 
 const editModal = document.querySelector("#edit-modal");
@@ -42,6 +46,13 @@ const newCardButton = document.querySelector(".profile__add-btn");
 const closeCardButton = cardModal.querySelector(".modal__close-btn");
 const cardForm = document.forms["add-card-form"];
 
+const previewModal = document.querySelector("#preview-modal");
+const previewModalImg = previewModal.querySelector(".modal__image");
+const previewModalCap = previewModal.querySelector(".modal__caption");
+const previewModalCloseBtn = previewModal.querySelector(
+  ".modal__close-btn-preview"
+);
+
 const cardImgInput = cardModal.querySelector("#card-link-input");
 const cardCap = cardModal.querySelector("#card-caption-input");
 
@@ -56,6 +67,7 @@ function getCardElement(data) {
   const cardNameEL = cardElement.querySelector(".card__title");
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardLikeBtn = cardElement.querySelector(".card__like-btn");
+  const cardDeleteBtn = cardElement.querySelector(".card__delete-btn");
 
   cardNameEL.textContent = data.name;
   cardImageEl.src = data.link;
@@ -65,15 +77,30 @@ function getCardElement(data) {
     cardLikeBtn.classList.toggle("card__like-btn_liked");
   });
 
+  cardDeleteBtn.addEventListener("click", () => {
+    cardElement.remove();
+  });
+
+  cardImageEl.addEventListener("click", () => {
+    openModal(previewModal);
+    previewModalImg.src = data.link;
+    previewModalImg.alt = data.name;
+    previewModalCap.textContent = data.name;
+  });
+
+  previewModalCloseBtn.addEventListener("click", () => {
+    closeModal(previewModal);
+  });
+
   return cardElement;
 }
 
 function openModal(modal) {
-  modal.classList.add("modal_opened");
+  modal.classList.add("modal__opened");
 }
 
 function closeModal(modal) {
-  modal.classList.remove("modal_opened");
+  modal.classList.remove("modal__opened");
 }
 
 function handleProfileFormSubmit(evt) {
