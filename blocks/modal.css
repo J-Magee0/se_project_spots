@@ -15,7 +15,7 @@
   transition: visibility 0s linear 0.5s, opacity 0.5s linear;
 }
 
-.modal__opened {
+.modal_opened {
   visibility: visible;
   opacity: 1;
   transition-delay: 0s;
@@ -38,9 +38,9 @@
 
 .modal__image {
   width: 100%;
-  max-width: 80vw;
+
   max-height: 80vh;
-  object-fit: fill;
+  object-fit: cover;
   margin-bottom: 8px;
   padding: 0;
   border-radius: 8px;
@@ -76,7 +76,7 @@
   opacity: 40%;
 }
 
-.modal__close-btn-preview {
+.modal__close-btn_type_preview {
   background-image: url(../images/close-btn_wht.svg);
   top: 0;
   right: -52.5px;
@@ -172,9 +172,8 @@
     width: 100%;
   }
 
-  .modal__close-btn-preview {
-    right: 75.5px;
-    top: -26px;
+  .modal__close-btn_type_preview {
+    top: -32px;
   }
 
   .modal__caption {
