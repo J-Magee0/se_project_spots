@@ -150,3 +150,11 @@ initialCards.forEach((card) => {
   const cardElement = getCardElement(card);
   cardsList.append(cardElement);
 });
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape" || event.keyCode === 27) {
+    closeModal(previewModal);
+    closeModal(editModal);
+    closeModal(cardModal);
+  }
+});
