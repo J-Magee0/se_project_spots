@@ -151,10 +151,16 @@ initialCards.forEach((card) => {
   cardsList.append(cardElement);
 });
 
-document.addEventListener("keydown", function (event) {
-  if (event.key === "Escape" || event.keyCode === 27) {
+document.addEventListener("keydown", function (evt) {
+  if (evt.key === "Escape" || evt.keyCode === 27) {
     closeModal(previewModal);
     closeModal(editModal);
     closeModal(cardModal);
+  }
+});
+
+document.addEventListener("mousedown", (evt) => {
+  if (evt.target.classList.contains("modal")) {
+    closeModal(evt.target);
   }
 });
