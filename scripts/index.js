@@ -54,7 +54,7 @@ const previewModalCloseBtn = previewModal.querySelector(
   ".modal__close-btn_type_preview"
 );
 
-//universal id for close buttons
+const popups = document.querySelectorAll(".modal");
 const closeButtons = document.querySelectorAll("#modal__close");
 
 closeButtons.forEach((button) => {
@@ -69,6 +69,15 @@ const cardCap = cardModal.querySelector("#card-caption-input");
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
+
+function handleEscape(evt) {
+  if (evt.key === "Escape") {
+    const openedPopup = document.querySelector(".modal_opened");
+    if (openedPopup) {
+      closeModal(openedPopup);
+    }
+  }
+}
 
 function getCardElement(data) {
   const cardElement = cardTemplate.content
@@ -104,10 +113,12 @@ function getCardElement(data) {
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", handleEscape);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", handleEscape);
 }
 
 function handleProfileFormSubmit(evt) {
@@ -122,9 +133,13 @@ function handleNewCardSubmit(evt) {
   const inputValues = { name: cardCap.value, link: cardImgInput.value };
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
-  disableButton(cardSubmitBtn, settings);
   closeModal(cardModal);
   cardForm.reset();
+}
+
+function renderCard(item, method = "prepend") {
+  const cardElement = getCardElement(item);
+  cardsList[method](cardElement);
 }
 
 profileEditButton.addEventListener("click", () => {
@@ -147,20 +162,16 @@ newCardButton.addEventListener("click", () => {
 cardForm.addEventListener("submit", handleNewCardSubmit);
 
 initialCards.forEach((card) => {
-  const cardElement = getCardElement(card);
-  cardsList.append(cardElement);
+  renderCard(card);
 });
 
-document.addEventListener("keydown", function (evt) {
-  if (evt.key === "Escape" || evt.keyCode === 27) {
-    closeModal(previewModal);
-    closeModal(editModal);
-    closeModal(cardModal);
-  }
-});
-
-document.addEventListener("mousedown", (evt) => {
-  if (evt.target.classList.contains("modal")) {
-    closeModal(evt.target);
-  }
+popups.forEach((popup) => {
+  popup.addEventListener("mousedown", (evt) => {
+    if (evt.target.classList.contains("modal_opened")) {
+      closeModal(popup);
+    }
+    if (evt.target.classList.contains("modal__close")) {
+      closeModal(popup);
+    }
+  });
 });
