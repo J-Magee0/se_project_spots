@@ -79,6 +79,11 @@ function handleEscape(evt) {
   }
 }
 
+function renderCard(item, method = "prepend") {
+  const cardElement = getCardElement(item);
+  cardsList[method](cardElement);
+}
+
 function getCardElement(data) {
   const cardElement = cardTemplate.content
     .querySelector(".card")
@@ -131,15 +136,9 @@ function handleProfileFormSubmit(evt) {
 function handleNewCardSubmit(evt) {
   evt.preventDefault();
   const inputValues = { name: cardCap.value, link: cardImgInput.value };
-  const cardElement = getCardElement(inputValues);
-  cardsList.prepend(cardElement);
+  renderCard(inputValues);
   closeModal(cardModal);
   cardForm.reset();
-}
-
-function renderCard(item, method = "prepend") {
-  const cardElement = getCardElement(item);
-  cardsList[method](cardElement);
 }
 
 profileEditButton.addEventListener("click", () => {
@@ -168,9 +167,6 @@ initialCards.forEach((card) => {
 popups.forEach((popup) => {
   popup.addEventListener("mousedown", (evt) => {
     if (evt.target.classList.contains("modal_opened")) {
-      closeModal(popup);
-    }
-    if (evt.target.classList.contains("modal__close")) {
       closeModal(popup);
     }
   });
