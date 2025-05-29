@@ -5,7 +5,6 @@ import {
   resetValidation,
 } from "../scripts/validation.js";
 import { Api } from "../utils/Api.js";
-import { data } from "autoprefixer";
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -23,7 +22,7 @@ api
     });
     profileName.textContent = userInfo.name;
     profileDescription.textContent = userInfo.about;
-    // profileAvatar.src = userInfo.avatar;
+    avatarImg.src = userInfo.avatar;
   })
   .catch(console.error);
 
@@ -87,7 +86,7 @@ function handleEscape(evt) {
   }
 }
 
-function renderCard(item, method = "prepend") {
+function renderCard(item, method = "append") {
   const cardElement = getCardElement(item);
   cardsList[method](cardElement);
 }
@@ -100,7 +99,7 @@ function handleDeleteCard(cardElement, cardId) {
 
 function handleDeleteSubmit(evt) {
   evt.preventDefault();
-  const deleteSubmitBtn = deleteForm.querySelector("button[type='submit']");
+  const deleteSubmitBtn = evt.submitter;
   const originalText = deleteSubmitBtn.textContent;
   deleteSubmitBtn.textContent = "Deleting...";
 
@@ -132,6 +131,7 @@ function handleLike(evt, id) {
 }
 
 function getCardElement(data) {
+  console.log("Card data:", data);
   const cardElement = cardTemplate.content
     .querySelector(".card")
     .cloneNode(true);
@@ -146,6 +146,11 @@ function getCardElement(data) {
   cardImageEl.alt = data.name;
 
   cardLikeBtn.addEventListener("click", (evt) => handleLike(evt, data._id));
+
+  const isLiked = data.isLiked;
+  if (isLiked) {
+    cardLikeBtn.classList.add("card__like-btn_liked");
+  }
 
   cardDeleteBtn.addEventListener("click", () =>
     handleDeleteCard(cardElement, data._id)
